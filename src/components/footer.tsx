@@ -1,16 +1,21 @@
 import React from "react"
 import { createStyles, Grid, Theme, Typography, WithStyles, withStyles } from "@material-ui/core"
 import { Link } from "gatsby"
+import Linkify from "./Linkify"
 
 
 const styles = (theme: Theme) => createStyles({
   container: {
-    position: "absolute" as "absolute",
-    bottom: theme.spacing(1),
-    right: theme.spacing(2),
+    [theme.breakpoints.up("sm")]: {
+      position: "absolute" as "absolute",
+      bottom: theme.spacing(1),
+      right: theme.spacing(2),
+    },
     width: "100%",
     display: "flex",
-    flex: 1
+    flex: 1,
+    zIndex: 1,
+    backgroundColor: "#fff"
   }
 });
 
@@ -19,6 +24,7 @@ interface Props extends WithStyles<typeof styles> {}
 const Footer = ({
                   classes
                 }: Props) => {
+  const gatsby = <Linkify text={"Gatsby"} link={"https://www.gatsbyjs.org"} />
   return (
     <footer className={classes.container}>
       <Grid
@@ -34,11 +40,7 @@ const Footer = ({
         </Grid>
         <Grid item>
           <Typography variant={"caption"}>
-            Built with {` `}
-            <a href="https://www.gatsbyjs.org" target={"_blank"} rel={"noreferrer noopener"}>
-              Gatsby
-            </a>
-            {"."}
+            Built with {gatsby}.
           </Typography>
         </Grid>
       </Grid>

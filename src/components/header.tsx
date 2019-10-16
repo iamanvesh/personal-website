@@ -35,10 +35,10 @@ const Header = ({
             <Link to={"/"} className={classes.link}>About</Link>
           </Grid>
           <Grid item>
-            <Link to={"/"} className={classes.link}>Work</Link>
+            <Link to={"/work"} className={classes.link}>Work</Link>
           </Grid>
             <Grid item>
-              <Link to={"/"} className={classes.link}>Blog</Link>
+              <Link to={"/blog"} className={classes.link}>Blog</Link>
             </Grid>
         </Grid>
       </div>

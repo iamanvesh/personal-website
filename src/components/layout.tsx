@@ -10,14 +10,17 @@ import React from "react"
 import Header from "./header"
 import "./layout.css"
 import Footer from "./footer"
-import { WithStyles, withStyles } from "@material-ui/core"
+import { createStyles, Theme, WithStyles, withStyles } from "@material-ui/core"
 
-const styles = {
+const styles = (theme: Theme) => createStyles({
   container: {
-    width: "90%",
-    margin: "auto"
-  }
-};
+    width: "80%",
+    margin: "auto",
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: theme.spacing(3)
+    }
+  },
+});
 
 interface Props extends WithStyles<typeof styles> {
   children: React.ReactNode,
