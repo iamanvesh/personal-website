@@ -1,0 +1,23 @@
+name: Github Pages Deployment
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+        
+      - name: Install Gatsby and gh-pages
+        uses: npm install -g gatsby-cli gh-pages
+        
+      - name: Install Project Dependencies
+        uses: yarn install
+      
+      - name: Deploy to Github pages
+        uses: npm run deploy
