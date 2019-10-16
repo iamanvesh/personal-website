@@ -1,7 +1,8 @@
 html {
-  font-family: sans-serif;
+  font-family: Oxygen, monospace;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  margin: 24px 16px 0 16px;
 }
 body {
   margin: 0;
@@ -49,12 +50,10 @@ a:hover {
 }
 abbr[title] {
   border-bottom: none;
-  text-decoration: underline;
   text-decoration: underline dotted;
 }
 b,
 strong {
-  font-weight: inherit;
   font-weight: bolder;
 }
 dfn {
@@ -200,7 +199,7 @@ html {
 }
 body {
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
+  font-family: Oxygen, serif;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;

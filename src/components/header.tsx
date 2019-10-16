@@ -1,37 +1,49 @@
 import { Link } from "gatsby"
 import React from "react"
+import { Grid, Theme, WithStyles, withStyles } from "@material-ui/core"
 
-interface Props {
-  siteTitle: string
+
+const styles = {
+  gridContainer: {
+    width: "100%",
+    display: "flex",
+    flex: 1
+  },
+  link: {
+    textDecoration: 'none'
+  }
+};
+
+interface Props extends WithStyles<typeof styles> {
+  theme: Theme
 }
 
-const Header = ({ siteTitle } : Props) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const Header = ({
+                  theme,
+                  classes
+                } : Props) => {
 
-export default Header
+  return (
+    <header>
+      <div className={classes.gridContainer}>
+        <Grid
+          container
+          justify={"flex-end"}
+          spacing={4}
+          alignContent={"space-between"}>
+          <Grid item>
+            <Link to={"/"} className={classes.link}>About</Link>
+          </Grid>
+          <Grid item>
+            <Link to={"/"} className={classes.link}>Work</Link>
+          </Grid>
+            <Grid item>
+              <Link to={"/"} className={classes.link}>Blog</Link>
+            </Grid>
+        </Grid>
+      </div>
+    </header>
+  );
+}
+
+export default withStyles(styles, {withTheme: true})(Header);
